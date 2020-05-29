@@ -1,0 +1,43 @@
+<p>goshala page</p>
+
+<button (click)="getAllEntity()">getAllEntity</button>
+
+
+
+<table>
+   <tr>
+      <th class="hidden" *ngFor="let col of columns">
+        {{col}}
+      </th>
+    </tr>
+
+<tr *ngFor="let user of userList.userList">
+    <td>{{ user.userId}}</td>
+    <td>{{ user.userName}}</td>
+    <td>{{ user.emailId}}</td>
+    <td>{{ user.contribution}}</td>
+    <td>{{ user.photo}}</td>
+    <td><button class='far fa-trash-alt' (click)="deleteEntity(user)"> Delete</button>  
+    <td><button class='far fa-trash-alt' (click)="editEntity(user)"> Edit</button> 
+   </td>
+</tr>
+</table>
+
+<input type="text" [(ngModel)]="searchText" placeholder="enter search term here"/>
+<li *ngFor="let user of userList.userList |filter : searchText">
+  <td>{{ user.userName}}</td>
+</li>
+
+ 
+
+<div class="row" style="margin-top: 28px;">
+
+  <div class="col-md-3">
+    <br>
+    
+    <li *ngFor="let ab of userList.user">
+       {{ userList.user.emailId | json}}
+    </li>
+
+    </div>
+    </div>
